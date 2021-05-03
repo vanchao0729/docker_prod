@@ -1,14 +1,14 @@
 #----------------------------#
-# Configuração das Variáveis #
+# Configuration variables    #
 #----------------------------#
 
 #----------------------#
-# Caminho da Aplicação #
+# Application Config   #
 #----------------------#
 APPLICATION=./htdocs
 
 #-----------------------------#
-# Customização dos Containers #
+# Customize the configure     #
 #-----------------------------#
 
 #-------#
