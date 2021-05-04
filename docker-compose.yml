@@ -7,7 +7,7 @@ services:
             context: ./nginx
             dockerfile: Dockerfile
         volumes:
-            - ${APPLICATION}:/var/www/html
+            - ${APPLICATION}:/var/www
             - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
             - ${NGINX_SITES_PATH}:/etc/nginx/conf.d
         ports:
