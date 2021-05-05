@@ -1,3 +1,8 @@
 <?php
 
-echo "Blog";
+require_once "./vendor/autoload.php";
+
+use HelloWorld\SayHello;
+
+echo SayHello::blog();
+

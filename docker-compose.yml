@@ -20,7 +20,7 @@ services:
 
     php-fpm:
         container_name: php-fpm
-        restart: always
+        restart: 'always'
         build:
             context: ./php
             dockerfile: Dockerfile
@@ -30,6 +30,15 @@ services:
             - ${APPLICATION}:/var/www
         networks:
             - code-network
+
+    composer:
+        container_name: composer
+        build:
+            context: ./composer
+            dockerfile: Dockerfile
+        volumes:
+            - ${APPLICATION}/blog:/app
+        command: ["composer", "install"]
 
 networks:
     code-network:
