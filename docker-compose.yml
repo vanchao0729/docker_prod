@@ -23,11 +23,31 @@ services:
         restart: 'always'
         build:
             context: ./php
+            args:
+                - INSTALL_PDO_MYSQL=${PHP_FPM_INSTALL_PDO_MYSQL}
             dockerfile: Dockerfile
         expose:
             - "9000"    
         volumes:
             - ${APPLICATION}:/var/www
+        networks:
+            - code-network
+
+    mysql:
+        container_name: mysql
+        restart: always
+        build:
+            context: ./mysql
+            dockerfile: Dockerfile
+        ports:
+            - "${MYSQL_PORT}:3306"
+        volumes:
+            - ${MYSQL_DATA}:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         networks:
             - code-network
 
