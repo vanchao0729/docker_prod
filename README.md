@@ -19,8 +19,6 @@ You should self installed docker and docker-compose before
 
 ## Notice
 
-Before U used composer, please check your docker-composer.yml configure about container_name is composer, which volume 
-
-set must be your project root directory and volume directory can not be dumplicate.
+Before U used composer, please check your docker-composer.yml configure about container_name is composer, which volume set must be your project root directory and volume directory can not be dumplicate.
 
 have fun ^_^
