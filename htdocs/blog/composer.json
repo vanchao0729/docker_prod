@@ -1,0 +1,5 @@
+{
+    "require": {
+	"ehime/hello-world": "v1.*"
+    }
+}
