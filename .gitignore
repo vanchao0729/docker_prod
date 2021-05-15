@@ -15,3 +15,5 @@
 # vendor/
 
 ./nginx/sites/*
+./htdocs/*
+./mysql/data/*
