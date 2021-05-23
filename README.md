@@ -17,8 +17,11 @@ You should self installed docker and docker-compose before
 
 * docker-compose run  --rm composer install (not must be required) 
 
+* docker-compose up -d --force-recreate --no-build express-app
+
 ## Notice
 
 Before U used composer, please check your docker-composer.yml configure about container_name is composer, which volume set must be your project root directory and volume directory can not be dumplicate.
 
 have fun ^_^
+
