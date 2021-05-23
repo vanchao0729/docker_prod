@@ -15,6 +15,7 @@ services:
             - "${NGINX_HOST_HTTPS_PORT}:443"
         links:
             - php-fpm
+            - express-app
         networks:
             - code-network
 
@@ -30,6 +31,21 @@ services:
             - "9000"    
         volumes:
             - ${APPLICATION}:/var/www
+        networks:
+            - code-network
+
+    express-app:
+        container_name: express-app
+        restart: 'always'
+        build:
+            context: ./express_app
+            dockerfile: Dockerfile
+        command: ' bash -c "yarn install && yarn build && yarn start" '
+        ports:
+            - "5000:5000"    
+        working_dir: /home/node/app
+        volumes:
+            - ${APPLICATION}/express_app:/home/node/app
         networks:
             - code-network
 
