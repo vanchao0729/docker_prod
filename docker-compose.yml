@@ -45,7 +45,7 @@ services:
             - "5000:5000"    
         working_dir: /home/node/app
         volumes:
-            - ${APPLICATION}/express_app:/home/node/app
+            - ${APPLICATION}/type_express:/home/node/app
         networks:
             - code-network
 
@@ -64,6 +64,20 @@ services:
             - MYSQL_USER=${MYSQL_USER}
             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        networks:
+            - code-network
+
+    redis-master:
+        container_name: redis-master
+        restart: always
+        build:
+            context: ./redis_master
+            dockerfile: Dockerfile
+        ports:
+            - "${REDIS_MASTER_PORT}:6379"
+        volumes:
+            - ${REDIS_MASTER_DATA}:/data
+        command: redis-server --appendonly yes
         networks:
             - code-network
 

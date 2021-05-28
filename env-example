@@ -49,3 +49,9 @@ MYSQL_PASSWORD=secret
 MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=secret
 MYSQL_DATA=./mysql/data/
+
+#-------#
+## REDIS #
+##-------#
+REDIS_MASTER_PORT=6379
+REDIS_MASTER_DATA=./redis_master/data

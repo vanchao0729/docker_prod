@@ -1,1 +1,1 @@
-FROM openresty/openresty:1.17.8.2-5-centos
+FROM openresty/openresty:1.17.8.2-5-buster

@@ -10,7 +10,11 @@ RUN apt-get update \
 # Common php-ext and requirements
 RUN apt-get install -y --no-install-recommends libpq-dev libz-dev \
  && docker-php-ext-install pdo \
+ && docker-php-ext-install mysqli \
  && docker-php-ext-install pdo_mysql
+
+# Instal redis php-ext and requirements
+RUN pecl install redis && docker-php-ext-enable redis
 
 # Clear package lists
 RUN rm -rf /var/lib/apt/lists/*
